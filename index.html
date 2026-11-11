@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ServiceOps Partner Performance Tracker - a sample service-call TAT and backlog dashboard.">
+  <title>ServiceOps | Partner Performance Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">SERVICE OPERATIONS ANALYTICS</p>
+      <h1>ServiceOps <span>Partner Tracker</span></h1>
+      <p class="subhead">Monitor service calls, TAT compliance and partner performance.</p>
+    </div>
+    <div class="actions">
+      <label class="upload-btn" for="csvFile">Upload CSV</label>
+      <input id="csvFile" type="file" accept=".csv,text/csv" hidden>
+      <button id="resetBtn" class="secondary-btn">Load demo data</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="toolbar">
+      <div>
+        <label for="partnerFilter">Partner</label>
+        <select id="partnerFilter"><option value="all">All partners</option></select>
+      </div>
+      <div>
+        <label for="regionFilter">Region</label>
+        <select id="regionFilter"><option value="all">All regions</option></select>
+      </div>
+      <div class="data-note" id="dataNote">Showing sample data · SLA is read from each row</div>
+    </section>
+
+    <section class="kpi-grid" aria-label="Key performance indicators">
+      <article class="kpi"><p>Total calls</p><strong id="totalCalls">0</strong><small>Calls in current view</small></article>
+      <article class="kpi"><p>Closed calls</p><strong id="closedCalls">0</strong><small>Successfully closed</small></article>
+      <article class="kpi"><p>Pending calls</p><strong id="pendingCalls">0</strong><small>Still open</small></article>
+      <article class="kpi"><p>TAT compliance</p><strong id="tatRate">0%</strong><small>Closed within row SLA</small></article>
+      <article class="kpi alert"><p>Overdue calls</p><strong id="overdueCalls">0</strong><small>Open beyond row SLA</small></article>
+    </section>
+
+    <section class="content-grid">
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">PARTNER COMPARISON</p><h2>Calls by partner</h2></div></div>
+        <div id="partnerChart" class="bar-chart"></div>
+      </article>
+      <article class="panel">
+        <div class="panel-heading"><div><p class="eyebrow">CALL STATUS</p><h2>Workload snapshot</h2></div></div>
+        <div class="status-summary">
+          <div><span class="dot closed"></span><span>Closed</span><b id="closedSummary">0</b></div>
+          <div><span class="dot pending"></span><span>Pending</span><b id="pendingSummary">0</b></div>
+          <div><span class="dot overdue"></span><span>Overdue</span><b id="overdueSummary">0</b></div>
+        </div>
+        <p class="hint">Overdue calls are a subset of pending calls.</p>
+      </article>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="panel-heading table-heading">
+        <div><p class="eyebrow">CALL REGISTER</p><h2>Service call details</h2></div>
+        <span id="rowCount" class="row-count">0 records</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Call ID</th><th>Partner</th><th>Region</th><th>Allocated</th><th>Status</th><th>Age (days)</th><th>SLA (days)</th><th>Result</th></tr></thead>
+          <tbody id="callsTable"></tbody>
+        </table>
+      </div>
+      <p class="footnote">Demo calculation uses calendar days. For real reporting, align SLA start/stop rules, holidays, Sundays and call categories with your approved service policy.</p>
+    </section>
+
+    <footer>
+      <span>ServiceOps Partner Tracker</span>
+      <span>Portfolio demo · Sample data only</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

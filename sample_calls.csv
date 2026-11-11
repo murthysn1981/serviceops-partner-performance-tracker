@@ -1,0 +1,11 @@
+call_id,partner,region,allocated_date,closed_date,status,sla_days
+CALL-1001,Gayatri Infotech,Rajahmundry,2026-11-07,2026-11-08,Closed,2
+CALL-1002,Gayatri Infotech,Rajahmundry,2026-11-06,,Pending,1
+CALL-1003,Gayatri Infotech,Rajahmundry,2026-11-10,,Pending,2
+CALL-1004,Gayatri Infotech,Rajahmundry,2026-11-03,2026-11-06,Closed,2
+CALL-1005,Gayatri Infotech,Rajahmundry,2026-11-08,,Pending,2
+CALL-2001,Global Computer Services,Eluru,2026-11-08,2026-11-09,Closed,2
+CALL-2002,Global Computer Services,Eluru,2026-11-09,,Pending,2
+CALL-2003,Global Computer Services,Eluru,2026-11-04,2026-11-05,Closed,2
+CALL-2004,Global Computer Services,Eluru,2026-11-02,,Pending,2
+CALL-3001,Sample Partner C,Vijayawada,2026-11-10,2026-11-10,Closed,1
